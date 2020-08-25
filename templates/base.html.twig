@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="CV STELTZLEN"/>
+    <meta name="author" content="Sébastien STELTZLEN"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('build/favicon.ico') }}"/>
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Font Fizzed icons -->
+    <link rel="stylesheet" href="{{ asset('build/font-mfizz-2.4.1/font-mfizz.css') }}">
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <title>{% block title %}CV de Sébastien STELTZLEN!{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('scripts') }}
+        <link rel="stylesheet" href="{{ asset('build/app.css') }}"/>
+    {% endblock %}
+</head>
+<body id="page-top">
+{% block body %}
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">Sébastien Steltzlen</span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                                                 src="{{ asset('build/profile.jpg') }}" alt="Photo profil"/></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Infos</a></li>
+                {% for category in categories %}
+                    {% if category.visible == true %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                                                href="#{{ category.hashtag }}">{{ category.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- About-->
+        <section class="resume-section" id="about">
+            <div class="resume-section-content">
+                <h1 class="mb-0">
+                    Sébastien
+                    <span class="text-primary">STELTZLEN</span>
+                </h1>
+                <!--googleoff: index-->
+                <div class="subheading mb-5">
+                    67000 STRASBOURG · (+33) 612216453 ·
+                    <a href="#" class="cryptedmail"
+                       data-name="sebastien"
+                       data-domain="arc-ad"
+                       data-tld="com"
+                       onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"></a>
+                </div>
+                <!--googleoff: index-->
+                <p class="lead mb-5">Développeur web Symfony / PHP passionné par la transformation des données.</p>
+                <div class="social-icons">
+                    <a class="social-icon" href="https://www.linkedin.com/in/sebastien-steltzlen/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon" href="https://github.com/sbeuhatsxb?tab=repositories" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                    <a class="social-icon" href="https://www.codewars.com/users/sbeuhatsxb" target="_blank"><i
+                                class="fas fa-code"></i></a>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0"/>
+        <!-- Experience-->
+        <section class="resume-section" id="dev">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Experience</h2>
+                {% for job in jobs %}
+                    {% if job.category == "Développement / Informatique" %}
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-0">{{ job.name }}</h3>
+                                <div class="subheading mb-3">{{ job.company }} - {{ job.contracttype }}</div>
+                                <p>{{ job.abstract|raw }}</p>
+                            </div>
+                            <div class="flex-shrink-0"><span class="text-primary">{{ job.date1 }} {% if job.date1 %} - {% endif %}{{ job.date2 }} </span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <hr class="m-0"/>
+        <!-- Skills-->
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Compétences</h2>
+                <div class="subheading mb-3">Langages de programmation et Outils</div>
+                <ul class="list-inline dev-icons">
+                    <li class="list-inline-item"><i class="fab fa-symfony"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-php"></i></li>
+                    <li class="list-inline-item"><i class="icon-mysql"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-typo3"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-github"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-docker"></i></li>
+                </ul>
+                <div class="subheading mb-3">Workflow</div>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-check"></i></span>
+                        Intégration continue, systèmes de gestion de projets
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-check"></i></span>
+                        Mobile-First, Responsive Design
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-check"></i></span>
+                        Documentation (Sphinx Doc), tests croisés de navigateurs et Debugging
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-check"></i></span>
+                        Développement agile et Scrum
+                    </li>
+                </ul>
+                <br>
+                <div class="subheading mb-3">PAO</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Photoshop, Lightroom, InDesign, Capture One
+                        </li>
+                    </ul>
+                <br>
+                <div class="subheading mb-3">Langues courantes</div>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-check"></i></span>
+                        Anglais, Italien
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+        <hr class="m-0"/>
+        <!-- WebProjects-->
+        <section class="resume-section" id="webprojects">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Projets Web</h2>
+                <ul class="fa-ul mb-0">
+                    {% for webproject in webprojects %}
+                        <li>
+                            <div class="subheading mb-3">{{ webproject.year }} - <a class="social-icon" href="{{ webproject.link }}" target="_blank">{{ webproject.name }}</a> - {{ webproject.techno }}</div>
+                            {{ webproject.description }}<br>
+                        </li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <hr class="m-0"/>
+
+        <!-- Professorat-->
+        <section class="resume-section" id="prof">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Professorat</h2>
+                {% for job in jobs %}
+                    {% if job.category == "Professorat" %}
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-0">{{ job.name }}</h3>
+                                <div class="subheading mb-3">{{ job.company }} - {{ job.contracttype }}</div>
+                                <p>{{ job.abstract|raw }}</p>
+                            </div>
+                            <div class="flex-shrink-0"><span
+                                        class="text-primary">{% if job.date1 is not empty %} {{ job.date1 }} - {% endif %}{{ job.date2 }} </span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <hr class="m-0"/>
+        <!-- Autres Experience-->
+        <section class="resume-section" id="otherxp">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Autres experiences</h2>
+                {% for job in jobs %}
+                    {% if job.category == "Autres expériences" %}
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-0">{{ job.name }}</h3>
+                                <div class="subheading mb-3">{{ job.company }} - {{ job.contracttype }}</div>
+                                <p>{{ job.abstract|raw }}</p>
+                            </div>
+                            <div class="flex-shrink-0"><span
+                                        class="text-primary">{{ job.date1 }} {% if job.date2 %} - {{ job.date2 }} {% endif %}</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <hr class="m-0"/>
+        <!-- Awards-->
+        <section class="resume-section" id="awards">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Certifications et récompenses</h2>
+                <ul class="fa-ul mb-0">
+                    {% for award in awards %}
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            {{ award.year }} - {{ award.name }}<br>{{ award.description }}
+                        </li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <hr class="m-0"/>
+        <!-- Education-->
+        <section class="resume-section" id="education">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Education</h2>
+                {% for education in educations %}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">{{ education.place }}</h3>
+                            <div class="subheading mb-3">{{ education.name }}</div>
+                            <div>{{ education.description }}</div>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">{{ education.year }}</span></div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </section>
+        <hr class="m-0"/>
+        <!-- Interests-->
+        <section class="resume-section" id="interests">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Centres d'intérêts</h2>
+                <p>En dehors de mon travail de développeur, je m'intéresse de près à la photographie - portraits et
+                    la photographie de rue. Soucieux des enjeux climatiques, la permaculture et les techniques
+                    d'autonomie sont au centre de mes préocuppations</p>
+                <p class="mb-0">A l'avenir, j'aspire à pouvoir développer davantages de projets web et me perfectionner
+                    encore plus dans les technologies afférentes à ces projets.</p>
+            </div>
+        </section>
+        <hr class="m-0"/>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('scripts') }}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+#easy_admin:
+#    entities:
+#        # List the entity class name you want to manage
+#        - App\Entity\Category
+#
+#        Job:
+#          class: App\Entity\Job
+#          controller: App\Controller\Admin\JobCrudController
+#          form:
+#            fields:
+#              - {property: 'name'}
+#              - {property: 'dates'}
+#              - {property: 'company'}
+#              - {property: 'abstract'}
+#              - {property: 'dateEnd'}
+#              - {property: 'contractType'}
+#              - {property: 'location'}
+#              - property: category
+#                type_options:
+#                  query_builder: [App\Controller\EasyAdmin\JobController, getCategoryTypeQueryBuilder]
