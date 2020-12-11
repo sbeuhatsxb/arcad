@@ -1,5 +1,6 @@
 var Encore = require('@symfony/webpack-encore');
 
+
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -13,7 +14,6 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
-
     /*
      * ENTRY CONFIG
      *
@@ -24,9 +24,10 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
 
-
     .addEntry('app', './assets/js/app.js')
+    .addEntry('photo', './assets/js/photo.js')
     .addEntry('scripts', './assets/js/scripts.js')
+    .addEntry('photoscripts', './assets/js/photoscripts.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -68,7 +69,7 @@ Encore
         //to: 'images/[path][name].[hash:8].[ext]',
         // only copy files matching this pattern
         //pattern: /\.(png|jpg|jpeg)$/
-        })
+    })
 
     // enables Sass/SCSS support
     //.enableSassLoader()
@@ -86,6 +87,21 @@ Encore
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
+
+    .addLoader({
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+            {
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'fonts/'
+                }
+            }
+        ]
+    })
+    .configureFilenames({
+        fonts: 'fonts/[name].[ext]'
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

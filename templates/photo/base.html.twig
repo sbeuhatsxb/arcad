@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Photographies de Sébastien STELTZLEN"/>
+    <meta name="author" content="Sébastien STELTZLEN"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('build/camera_photo.ico') }}"/>
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" type='text/css'>
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <title>{% block title %}Sébastien STELTZLEN - Photographies{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('photo') }}
+        {{ encore_entry_link_tags('photoscripts') }}
+    {% endblock %}
+</head>
+<body id="page-top">
+{% block body %}
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand"><h1 class="dark large">SEBASTIEN STELTLZLEN.</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-end">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Photography<span class="sr-only">(current)</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Portraits</a>
+                        <a class="dropdown-item" href="#">Street</a>
+{#                        <div class="dropdown-divider"></div>#}
+{#                        <a class="dropdown-item" href="#">Something else here</a>#}
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Grid column -->
+    <div class="col-md-12 d-flex justify-content-center mb-5">
+
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Mountains</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Sea</button>
+
+    </div>
+        <!-- Grid column -->
+    <div class="container float-lg-left">
+        <!-- Grid row -->
+        <div class="row">
+
+
+        </div>
+        <!-- Grid row -->
+
+        <!-- Grid row -->
+        <div class="gallery" id="gallery">
+
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all 2">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all 1">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all 1">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all 2">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all 2">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all 1">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('photo') }}
+    {{ encore_entry_script_tags('photoscripts') }}
+{% endblock %}
+</body>
+</html>
